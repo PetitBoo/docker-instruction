@@ -8,7 +8,7 @@
 ## Установка Docker Engine
 Первым делом мы должны удостовериться, что Docker работает на установленной версии Ubuntu. Запускаем команду:
 
-` cat /etc/*rel*`
+``` cat /etc/*rel*```
 
 Находим строчку “VERSION” и сверяемся с [сайтом](https://docs.docker.com/engine/install/ubuntu/), что она работает:
  
