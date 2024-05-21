@@ -135,7 +135,7 @@ CMD ["python3", "/app/application.py"]
 ls -l
 ```
 
-Создаем образ при помощи команды:
+Создаем образ:
 
 ```
 docker build -t exampleapp -f Dockerfile .
