@@ -16,7 +16,7 @@
 cat /etc/*rel*
 ```
 
-Находим строчку `VERSION` и сверяемся с [Docker Docs](https://docs.docker.com/engine/install/ubuntu/), что она работает:
+Находим строчку `VERSION` и сверяемся с [Docker Docs](https://docs.docker.com/engine/install/ubuntu/), что она подходит для работы с Docker:
 
 ![Пример](./images/version.jpg)
 
