@@ -72,7 +72,8 @@ cd docker
 ```
 
 В **docker/application/** мы будем хранить файлы для нашего образа. Создаем в ней файл `application.py`:
-‘’’
+
+```
 vi application/application.py
 ```
 
