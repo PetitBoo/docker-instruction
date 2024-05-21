@@ -8,14 +8,18 @@
 ## Установка Docker Engine
 Первым делом мы должны удостовериться, что Docker работает на установленной версии Ubuntu. Запускаем команду:
 
-``` cat /etc/*rel*```
+```
+cat /etc/*rel*
+```
 
-Находим строчку “VERSION” и сверяемся с [сайтом](https://docs.docker.com/engine/install/ubuntu/), что она работает:
+Находим строчку `VERSION` и сверяемся с [сайтом](https://docs.docker.com/engine/install/ubuntu/), что она работает:
  
 
 Далее мы проверяем, что на машине нет установленных версий Docker, и удаляем их:
 
-`for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done`
+```
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+```
 
 Создаем репозиторий для установки Docker:
 
@@ -37,11 +41,15 @@ sudo apt-get update
 
 Далее нужно установить последнюю версию Docker при помощи команды:
 
-` sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin `
+```
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
 
-Проверяем, что установка прошла успешно. Для этого мы запустим образ hello-world:
+Проверяем, что установка прошла успешно. Для этого мы запустим образ `hello-world`:
 
-` sudo docker run hello-world `
+```
+sudo docker run hello-world
+```
 
 Если установка завершена успешно, то вы увидите следующее:
 
