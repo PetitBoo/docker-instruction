@@ -14,6 +14,7 @@ cat /etc/*rel*
 ```
 
 Находим строчку `VERSION` и сверяемся с [сайтом](https://docs.docker.com/engine/install/ubuntu/), что она работает:
+![Пример](./images/version.jpg)
  
 
 Далее мы проверяем, что на машине нет установленных версий Docker, и удаляем их:
