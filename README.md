@@ -30,14 +30,14 @@ for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker c
 Создаем репозиторий для установки Docker:
 
 ```
-# Add Docker's official GPG key:
+# Дабовляем официальный GPG-ключ Docker:
 sudo apt-get update
 sudo apt-get install ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-# Add the repository to Apt sources:
+# Добавляем репозиторий:
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
@@ -86,6 +86,7 @@ import os
 
 PORT = 8800
 
+# Класс SimpleHTTPRequestHandler обслуживает файлы из текущего каталога и ниже, непосредственно сопоставляя структуру каталога с запросами HTTP
 Handler = http.server.SimpleHTTPRequestHandler
 
 # Создаем и слушаем HTTP сокет, 
