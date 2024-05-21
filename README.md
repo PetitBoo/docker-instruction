@@ -15,6 +15,7 @@ cat /etc/*rel*
 
 Находим строчку `VERSION` и сверяемся с [сайтом](https://docs.docker.com/engine/install/ubuntu/), что она работает:
 ![Пример](./images/version.jpg)
+
  
 
 Далее мы проверяем, что на машине нет установленных версий Docker, и удаляем их:
@@ -56,32 +57,37 @@ sudo docker run hello-world
 Если установка завершена успешно, то вы увидите следующее:
 
 ##  Создание Docker-образа
-Для начала мы создаем директорию, в которой будет храниться наш проект:
+Для начала мы создаем директории, в которой будет храниться наш проект:
 
 ```
 mkdir docker
 mkdir docker/application
 ```
 
-В папке docker/application создаем файл application.py:
+В **docker/application/** мы будем хранить файлы для нашего образа. Создаем в ней файл `application.py`:
 
 ```python
 import http.server
 import socketserver
 import os
+
 PORT = 8800
+
 Handler = http.server.SimpleHTTPRequestHandler
+
 # Create and listen at the HTTP socket, 
 # dispatching the requests to the handler.
 httpd = socketserver.TCPServer(("", PORT), Handler)
+
 # Echo current status to the console and server logs. 
 # It will be shown as the first line in the 'docker logs' command output.
 os.system(f"echo 'serving at port {PORT}'")
+
 # Handle requests until the server is terminated.
 httpd.serve_forever()
 ```
 
-В папке docker создаем Dockerfile:
+В директории **docker/** создаем `Dockerfile` и прописываем в нем следующие зависимости:
 
 ```Docker
 # Используем образ Python с Docker Hub
@@ -104,11 +110,11 @@ CMD ["python", "/app/application.py"]
 Создаем образ при помощи команды:
 
 ```
-docker build -t app -f Dockerfile .
+docker build -t exampleapp -f Dockerfile .
 ```
 
 `-t` используется для явного указания названия образа.
-`app` – название образа, которое мы использовали.
+`exampleapp` – название образа, которое мы использовали.
 `-f` используется для явного указания Dockerfile.
 `.` – папка, в которой нужно искать Dockerfile.
 
@@ -122,7 +128,7 @@ ls -l
 Запускаем образ при помощи команды:
 
 ```
-docker run -p 8800:8800 -d app
+docker run -p 8800:8800 -d exampleapp
 ```
 
 Чтобы посмотреть список контейнеров, пишем:
